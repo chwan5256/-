@@ -1,0 +1,356 @@
+/* 전체 요소에 마진, 패딩, 박스 크기 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body 스타일: 폰트, 줄 높이, 색상, 배경 설정 */
+body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f0f2f5;
+}
+
+/* 히어로 섹션 스타일: 배경 그라데이션, 색상, 패딩, 텍스트 정렬, 위치, 오버플로우 숨김 */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 히어로 섹션 배경 애니메이션을 위한 가상 요소 */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: float 20s linear infinite;
+}
+
+/* 배경 부유 애니메이션 키프레임 */
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+/* 히어로 컨텐츠 스타일: 위치, 최대 너비, 마진 */
+.hero-content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 히어로 제목 스타일: 폰트 크기, 마진, 애니메이션 */
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease;
+}
+
+/* 이모지 스타일: 인라인 블록, 애니메이션 */
+.emoji {
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+/* 이모지 바운스 애니메이션 키프레임 */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 히어로 부제목 스타일: 폰트 크기, 마진, 투명도, 애니메이션 */
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* 히어로 설명 스타일: 폰트 크기, 애니메이션 */
+.hero-description {
+    font-size: 1.1rem;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+/* 대상 텍스트 스타일: 마진, 패딩, 배경, 테두리 반경, 인라인 블록 */
+.target {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 30px;
+    display: inline-block;
+}
+
+/* 네비게이션 스타일: 배경, 패딩, 플렉스 박스, 중앙 정렬, 간격, 그림자, 고정 위치, z-index */
+.navigation {
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* 네비게이션 버튼 스타일: 패딩, 테두리 없음, 배경, 테두리 반경, 폰트 크기, 커서, 전환 효과, 폰트 굵기 */
+.nav-btn {
+    padding: 12px 30px;
+    border: none;
+    background: #f0f2f5;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* 네비게이션 버튼 호버 효과: 변형, 그림자 */
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 활성 네비게이션 버튼 스타일: 배경 그라데이션, 색상 */
+.nav-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* 메인 컨텐츠 스타일: 최대 너비, 마진, 패딩 */
+.main-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 세션 컨텐츠 기본 스타일: 숨김, 애니메이션 */
+.session-content {
+    display: none;
+    animation: fadeIn 0.6s ease;
+}
+
+/* 활성 세션 컨텐츠 스타일: 보임 */
+.session-content.active {
+    display: block;
+}
+
+/* 페이드인 애니메이션 키프레임 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 세션 헤더 스타일: 텍스트 정렬, 마진 */
+.session-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* 세션 제목 스타일: 폰트 크기, 색상, 마진 */
+.session-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* 세션 번호 스타일: 배경 그라데이션, 색상, 패딩, 테두리 반경, 폰트 크기, 마진 */
+.session-number {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+/* 세션 부제목 스타일: 폰트 크기, 색상 */
+.session-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* 컨텐츠 박스 스타일: 배경, 테두리 반경, 패딩, 마진, 그림자, 전환 효과 */
+.content-box {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+/* 컨텐츠 박스 호버 효과: 변형, 그림자 */
+.content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* 컨텐츠 박스 제목 스타일: 폰트 크기, 마진, 색상, 플렉스 박스, 아이템 정렬, 간격 */
+.content-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 아이콘 스타일: 폰트 크기 */
+.icon {
+    font-size: 1.5rem;
+}
+
+/* 문제상황 카드 스타일: 배경 그라데이션, 패딩, 테두리 반경, 폰트 크기, 줄 높이, 텍스트 정렬 */
+.story-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 25px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* 토론 논제 스타일: 폰트 크기, 색상, 폰트 굵기, 텍스트 정렬, 패딩, 배경, 테두리 반경, 왼쪽 테두리 */
+.debate-topic {
+    font-size: 1.3rem;
+    color: #667eea;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    background: #f0f2f5;
+    border-radius: 15px;
+    border-left: 5px solid #667eea;
+}
+
+/* 활동 그리드 스타일: 그리드 레이아웃, 컬럼 템플릿, 간격 */
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* 활동 아이템 스타일: 배경, 패딩, 테두리 반경, 텍스트 정렬, 전환 효과 */
+.activity-item {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* 활동 아이템 호버 효과: 배경 그라데이션, 색상, 변형 */
+.activity-item:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* 활동 아이콘 스타일: 폰트 크기, 블록 요소, 마진, 전환 효과 */
+.activity-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* 활동 아이템 제목 스타일: 폰트 크기, 마진 */
+.activity-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* 활동 아이템 설명 스타일: 폰트 크기, 투명도 */
+.activity-item p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* 푸터 스타일: 배경, 색상, 패딩, 상단 마진 */
+.footer {
+    background: #2d3748;
+    color: white;
+    padding: 50px 20px;
+    margin-top: 60px;
+}
+
+/* 푸터 컨텐츠 스타일: 최대 너비, 마진, 텍스트 정렬 */
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 푸터 제목 스타일: 폰트 크기, 마진 */
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* 스킬 그리드 스타일: 그리드 레이아웃, 컬럼 템플릿, 간격, 마진 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* 스킬 아이템 스타일: 텍스트 정렬 */
+.skill-item {
+    text-align: center;
+}
+
+/* 스킬 아이콘 스타일: 폰트 크기, 블록 요소, 마진 */
+.skill-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* 페이드인 업 애니메이션 키프레임 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 반응형 디자인 (최대 너비 768px) */
+@media (max-width: 768px) {
+    /* 히어로 제목 폰트 크기 조정 */
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    /* 네비게이션 버튼 패딩, 폰트 크기 조정 */
+    .nav-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* 컨텐츠 박스 패딩 조정 */
+    .content-box {
+        padding: 20px;
+    }
+    
+    /* 스킬 그리드 컬럼 템플릿, 간격 조정 */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
